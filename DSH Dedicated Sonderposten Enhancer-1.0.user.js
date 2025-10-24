@@ -371,20 +371,26 @@
         minInput.addEventListener('input', applyFilters);
         minInput.addEventListener('blur', () => {
             const value = parseFloat(minInput.value);
-            const placeholder = minInput.placeholder;
-            const minValue = parseFloat(placeholder.split(' ')[0]);
-            if (!isNaN(value) && !isNaN(minValue) && value < minValue) {
+            const minPlaceholder = minInput.placeholder;
+            const maxPlaceholder = maxInput.placeholder;
+            const minValue = parseFloat(minPlaceholder.split(' ')[0]);
+            const maxValue = parseFloat(maxPlaceholder.split(' ')[0]);
+            if (!isNaN(value) && !isNaN(minValue) && !isNaN(maxValue) && (value < minValue || value > maxValue)) {
                 minInput.value = minValue;
+                applyFilters();
             }
         });
 
         maxInput.addEventListener('input', applyFilters);
         maxInput.addEventListener('blur', () => {
             const value = parseFloat(maxInput.value);
-            const placeholder = maxInput.placeholder;
-            const maxValue = parseFloat(placeholder.split(' ')[0]);
-            if (!isNaN(value) && !isNaN(maxValue) && value > maxValue) {
+            const minPlaceholder = minInput.placeholder;
+            const maxPlaceholder = maxInput.placeholder;
+            const minValue = parseFloat(minPlaceholder.split(' ')[0]);
+            const maxValue = parseFloat(maxPlaceholder.split(' ')[0]);
+            if (!isNaN(value) && !isNaN(minValue) && !isNaN(maxValue) && (value < minValue || value > maxValue)) {
                 maxInput.value = maxValue;
+                applyFilters();
             }
         });
 
@@ -511,12 +517,19 @@
         if (document.getElementById('storage-type-nvme')?.checked) storageTypes.push('NVME');
         if (document.getElementById('storage-type-nvme-pcie4')?.checked) storageTypes.push('NVME PCIE 4');
 
-        const ramMin = parseFloat(document.getElementById('ram-min')?.value) || 0;
-        const ramMax = parseFloat(document.getElementById('ram-max')?.value) || Infinity;
-        const storageMin = parseFloat(document.getElementById('storage-min')?.value) || 0;
-        const storageMax = parseFloat(document.getElementById('storage-max')?.value) || Infinity;
-        const priceMin = parseFloat(document.getElementById('price-min')?.value) || 0;
-        const priceMax = parseFloat(document.getElementById('price-max')?.value) || Infinity;
+        const ramMinInput = document.getElementById('ram-min');
+        const ramMaxInput = document.getElementById('ram-max');
+        const storageMinInput = document.getElementById('storage-min');
+        const storageMaxInput = document.getElementById('storage-max');
+        const priceMinInput = document.getElementById('price-min');
+        const priceMaxInput = document.getElementById('price-max');
+
+        const ramMin = parseFloat(ramMinInput?.value) || parseFloat(ramMinInput?.placeholder?.split(' ')[0]) || 0;
+        const ramMax = parseFloat(ramMaxInput?.value) || parseFloat(ramMaxInput?.placeholder?.split(' ')[0]) || Infinity;
+        const storageMin = parseFloat(storageMinInput?.value) || parseFloat(storageMinInput?.placeholder?.split(' ')[0]) || 0;
+        const storageMax = parseFloat(storageMaxInput?.value) || parseFloat(storageMaxInput?.placeholder?.split(' ')[0]) || Infinity;
+        const priceMin = parseFloat(priceMinInput?.value) || parseFloat(priceMinInput?.placeholder?.split(' ')[0]) || 0;
+        const priceMax = parseFloat(priceMaxInput?.value) || parseFloat(priceMaxInput?.placeholder?.split(' ')[0]) || Infinity;
         const hasExtra = document.getElementById('extra-features')?.checked || false;
         let visibleCount = 0;
         allServers.forEach(server => {
