@@ -1,6 +1,6 @@
 # DSH Server Tools
 
-**Deutsch 🇩🇪**
+**Deutsch**
 Dieses **Tampermonkey-Skript** erweitert die Übersicht der **Dedizierten Sonderposten (DSH)** um nützliche Funktionen wie **Server-Filterung** und **Server-Sortierung**.
 Dadurch wird die Ansicht deutlich übersichtlicher und das Finden bestimmter Server wesentlich einfacher.
 
@@ -21,7 +21,7 @@ Dadurch wird die Ansicht deutlich übersichtlicher und das Finden bestimmter Ser
 
 ---
 
-**English 🇬🇧**
+**English**
 This **Tampermonkey script** enhances the **Dedicated Special Posts (DSH)** overview with useful features like **server filtering** and **server sorting**.
 It makes the list much clearer and helps you find specific servers faster.
 
@@ -45,7 +45,7 @@ It makes the list much clearer and helps you find specific servers faster.
 
 ## Lizenz / License
 
-**Deutsch 🇩🇪**
+**Deutsch**
 Dieses Projekt steht unter der **MIT-Lizenz**.
 Du darfst den Code frei verwenden, verändern und verbreiten, solange der ursprüngliche Hinweis auf den Autor erhalten bleibt.
 
@@ -53,7 +53,7 @@ Du darfst den Code frei verwenden, verändern und verbreiten, solange der urspr�
 
 ---
 
-**English 🇬🇧**
+**English**
 This project is licensed under the **MIT License**.
 You are free to use, modify, and distribute the code as long as the original author attribution remains intact.
 
